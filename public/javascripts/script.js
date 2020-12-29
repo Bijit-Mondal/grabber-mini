@@ -67,7 +67,7 @@ function ShowResults(response){
       template = template.replace(/DESCRIPTION/g,desc);
       template = template.replace(/VIDEO_ID/g,vid);
 
-      container.innerHTML+=template;
+      contain.innerHTML+=template;
       template=copy;
   }
 }
