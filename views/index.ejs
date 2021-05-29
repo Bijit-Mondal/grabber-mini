@@ -15,6 +15,41 @@
 <link rel="manifest"
 		href="manifest.json">
 <style>
+.loader {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .loader > img {
+        width: 70%;
+        height: 20%;
+    }
+    
+    .loader.hidden {
+        animation: fadeOut 1s;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes fadeOut {
+        100% {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+    
+    .thumb {
+        height: 100px;
+        border: 1px solid black;
+        margin: 10px;
+    }
     .bounce-in-top {
   -webkit-animation: bounce-in-top 1.1s both;
           animation: bounce-in-top 1.1s both;
@@ -234,6 +269,9 @@
 </head>
 <body class="bg-gray-900">
   <!--NavBar-->
+  <div class="loader">
+        <img src="/images/loading.gif" alt="Loading..." />
+    </div>
   <header class="text-gray-500 bg-gray-900 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
     <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0" href="https://bijityoutube.herokuapp.com">
@@ -393,6 +431,12 @@
 <!--Script-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="/javascripts/script.js"></script>
+<script>
+window.addEventListener("load", function () {
+            const loader = document.querySelector(".loader");
+            loader.className += " hidden"; // class "loader hidden"
+        });
+</script>
 <script>
   //switching between home and about
   var home = document.querySelector('.home');
